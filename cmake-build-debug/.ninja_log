@@ -1,0 +1,18 @@
+# ninja log v6
+11	98	7483047010971731	CMakeFiles/lab3template.dir/MyStack.cpp.obj	27ee398b918f7968
+6	429	7483106053983997	CMakeFiles/lab3template.dir/main.cpp.obj	41b2117491895f0b
+430	515	7483106058214412	lab3template.exe	c7590b84fb804a14
+6	456	7483105499665214	CMakeFiles/lab3template.dir/myStack.cpp.obj	327c385448803ed7
+5	491	7483110336543783	CMakeFiles/lab3template.dir/main.cpp.obj	41b2117491895f0b
+9	492	7483110336593780	CMakeFiles/lab3template.dir/myStack.cpp.obj	327c385448803ed7
+13	12066	7483110336633456	CMakeFiles/lab3template.dir/unit_tests.cpp.obj	5b4368ffb7e17d2b
+9	12166	7483111141325335	CMakeFiles/lab3template.dir/unit_tests.cpp.obj	5b4368ffb7e17d2b
+7	417	7483111818612509	CMakeFiles/lab3template.dir/main.cpp.obj	41b2117491895f0b
+418	17775	7483111822723267	lab3template.exe	c65a29c1550b64
+6	12219	7483113491455149	CMakeFiles/lab3template.dir/unit_tests.cpp.obj	5b4368ffb7e17d2b
+7	12257	7483114191377529	CMakeFiles/lab3template.dir/unit_tests.cpp.obj	5b4368ffb7e17d2b
+12257	29905	7483114313891305	lab3template.exe	c65a29c1550b64
+7	429	7483117994396418	CMakeFiles/lab3template.dir/main.cpp.obj	41b2117491895f0b
+12	488	7483117994446440	CMakeFiles/lab3template.dir/myStack.cpp.obj	327c385448803ed7
+16	12266	7483117994481733	CMakeFiles/lab3template.dir/unit_tests.cpp.obj	5b4368ffb7e17d2b
+12266	30745	7483118116989643	lab3template.exe	c65a29c1550b64
