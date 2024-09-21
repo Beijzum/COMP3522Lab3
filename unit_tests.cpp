@@ -7,7 +7,7 @@
 #include "myStack.hpp"
 #include "catch.hpp"
 
-TEST_CASE("A new stack is empty", "Test")
+TEST_CASE("A new stack is empty", "emptyTest")
 {
     MyStack tester;
 
@@ -15,47 +15,80 @@ TEST_CASE("A new stack is empty", "Test")
     REQUIRE(tester.full() == false);
 }
 
-TEST_CASE("Push function works correctly", "[stack]") {
+TEST_CASE("Push function works", "pushTest") {
     MyStack tester;
 
-    REQUIRE(tester.push(10) == true); // Push 10
-    REQUIRE(tester.empty() == false); // Stack should not be empty
-    REQUIRE(tester.push(20) == true); // Push 20
-    REQUIRE(tester.peek() == 20);     // Top element should be 20
+    REQUIRE(tester.push(10) == true);
+    REQUIRE(tester.empty() == false);
+    REQUIRE(tester.push(20) == true);
+    REQUIRE(tester.peek() == 20);
 }
 
-TEST_CASE("Pop function works correctly", "[stack]") {
+TEST_CASE("Pop function works", "popTest") {
     MyStack tester;
     tester.push(10);
     tester.push(20);
 
-    tester.pop(); // Pop top element (20)
-    REQUIRE(tester.peek() == 10); // Top element should be 10 now
+    tester.pop();
+    REQUIRE(tester.peek() == 10);
 
-    tester.pop(); // Pop top element (10)
-    REQUIRE(tester.empty() == true); // Stack should be empty now
+    tester.pop();
+    REQUIRE(tester.empty() == true);
 }
 
-TEST_CASE("Peek function works correctly", "[stack]") {
+TEST_CASE("Pop an empty stack", "popEmptyStackTest") {
+    MyStack tester;
+
+    REQUIRE(tester.empty() == true);
+
+    tester.pop();
+
+    REQUIRE(tester.empty() == true);
+    REQUIRE(tester.print() == "Stack is empty");
+}
+
+TEST_CASE("Pop an empty stack then push", "popEmptyPushStackTest") {
+    MyStack tester;
+
+    REQUIRE(tester.empty() == true);
+
+    tester.pop();
+
+    REQUIRE(tester.empty() == true);
+    REQUIRE(tester.print() == "Stack is empty");
+    REQUIRE(tester.push(1) == true);
+    REQUIRE(tester.peek() == 1);
+    REQUIRE(tester.print() == "Stack from bottom to top (FIFO): [1]");
+}
+
+TEST_CASE("Peek function works", "peekTest") {
     MyStack tester;
     tester.push(10);
     tester.push(20);
 
-    REQUIRE(tester.peek() == 20); // Top element should be 20
+    REQUIRE(tester.peek() == 20);
 }
 
-TEST_CASE("Print function works correctly", "[stack]") {
+TEST_CASE("Check top value on empty stack", "peekEmptyStackTest") {
     MyStack tester;
-    REQUIRE(tester.print() == "Stack is empty"); // For empty stack
+
+    REQUIRE(tester.empty() == true);
+
+    REQUIRE(tester.peek() == 0);
+}
+
+TEST_CASE("Print function works correctly", "printTest") {
+    MyStack tester;
+    REQUIRE(tester.print() == "Stack is empty");
 
     tester.push(10);
     tester.push(20);
 
     std::string expected_output = "Stack from bottom to top (FIFO): [10, 20]";
-    REQUIRE(tester.print() == expected_output); // For stack with elements 10, 20
+    REQUIRE(tester.print() == expected_output);
 }
 
-TEST_CASE("Stack becomes full and push fails", "[stack]") {
+TEST_CASE("Stack is full peek top", "fullStackPeekTest") {
     MyStack tester;
 
     for (int i = 0; i < MyStack::MAX_SIZE; ++i) {
@@ -64,9 +97,10 @@ TEST_CASE("Stack becomes full and push fails", "[stack]") {
 
     REQUIRE(tester.full() == true);
     REQUIRE(tester.push(100) == false);
+    REQUIRE(tester.peek() == 9);
 }
 
-TEST_CASE("Push/Pop multiple elements", "[stack]") {
+TEST_CASE("Push/Pop multiple elements", "pushPopTest") {
     MyStack tester;
     for (int i = 0; i < 5; ++i) {
         tester.push(i);
@@ -83,3 +117,4 @@ TEST_CASE("Push/Pop multiple elements", "[stack]") {
     REQUIRE(tester.empty() == true);
     REQUIRE(tester.print() == "Stack is empty");
 }
+
